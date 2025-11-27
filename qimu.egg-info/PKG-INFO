@@ -1,0 +1,143 @@
+Metadata-Version: 2.4
+Name: qimu
+Version: 0.1.0
+Summary: A modern Python CLI toolset for bioinformatics
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: rich>=13.0.0
+Requires-Dist: rich-click>=1.7.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: seaborn>=0.12.0
+Requires-Dist: scikit-learn>=1.3.0
+Requires-Dist: plotly>=5.14.0
+Requires-Dist: pyfastx>=2.0.0
+Requires-Dist: newick>=1.10
+Requires-Dist: pysam>=0.21.0
+Requires-Dist: pyvcf3>=1.0.3
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+
+# qimu
+
+A modern Python CLI toolset for bioinformatics.
+
+## Installation
+
+### Development Installation
+
+```bash
+# Clone the repository
+cd qimu
+
+# Install in development mode with dev dependencies
+pip install -e ".[dev]"
+```
+
+### Regular Installation
+
+```bash
+pip install qimu
+```
+
+## Usage
+
+```bash
+qimu [OPTIONS] COMMAND [ARGS]...
+```
+
+### General Options
+
+- `-c, --config FILE` - Specify a config file to override default (~/.config/qimu.ini)
+- `--debug` - Enable debug logging (DEBUG level)
+- `--verbose` - Enable verbose logging (INFO level)
+- `--log FILE` - Save log to FILE in addition to printing to STDERR
+
+### Commands
+
+#### version
+
+Print the version information.
+
+```bash
+# Print version number only
+qimu version
+
+# Print full version info including all dependencies
+qimu version --full
+```
+
+#### config
+
+Manage configuration settings.
+
+```bash
+# Display current configuration
+qimu config
+
+# Set a parameter in the default [qimu] section
+qimu config --set mykey myvalue
+
+# Set a parameter in a specific section
+qimu config --set mysection.mykey myvalue
+```
+
+## Configuration
+
+qimu uses an INI-format configuration file. The default location is `~/.config/qimu.ini`.
+
+Example configuration:
+
+```ini
+[qimu]
+# Generic parameters
+value = args...
+
+[subcommand]
+# Subcommand-specific parameters
+value = args...
+```
+
+## Development
+
+### Running Tests
+
+```bash
+pytest
+```
+
+### Code Quality
+
+```bash
+# Format code
+black qimu tests
+
+# Lint code
+ruff check qimu tests
+
+# Fix linting issues automatically
+ruff check --fix qimu tests
+```
+
+## Requirements
+
+- Python >= 3.10
+- See `pyproject.toml` for full list of dependencies
+
+## License
+
+MIT

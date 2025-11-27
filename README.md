@@ -1,6 +1,6 @@
 # qimu
 
-A modern Python CLI toolset for bioinformatics.
+Quadram institute miscellaneous utilities
 
 ## Installation
 
@@ -10,16 +10,11 @@ A modern Python CLI toolset for bioinformatics.
 # Clone the repository
 cd qimu
 
-# Install in development mode with dev dependencies
+pip install qimu
+# or Install in development mode with dev dependencies
 pip install -e ".[dev]"
 ```
-
-### Regular Installation
-
-```bash
-pip install qimu
-```
-
+ 
 ## Usage
 
 ```bash
@@ -99,12 +94,8 @@ ruff check qimu tests
 ruff check --fix qimu tests
 ```
 
-## Requirements
-
-- Python >= 3.10
-- See `pyproject.toml` for full list of dependencies
 
 ## License
 
 MIT
-# qimu
+
